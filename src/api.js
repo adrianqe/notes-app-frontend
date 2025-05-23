@@ -71,26 +71,74 @@ export async function deleteNote(id) {
     return res.json();
 }
 
-// === Etiquetas ===
+// Tags
 
-export async function fetchTags() {
-    const res = await fetch(`${API_BASE_URL}/tags`);
-    if (!res.ok) throw new Error('Error fetching tags');
-    return res.json();
-}
-
-export async function addTagToNote(noteId, tagId) {
-    const res = await fetch(`${API_BASE_URL}/notes/${noteId}/tags/${tagId}`, {
+export async function createTag(data) {
+    const res = await fetch(`${API_BASE_URL}/tags`, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error('Error adding tag to note');
+    if (!res.ok) throw new Error('Error creating tag');
     return res.json();
 }
 
-export async function removeTagFromNote(noteId, tagId) {
-    const res = await fetch(`${API_BASE_URL}/notes/${noteId}/tags/${tagId}`, {
+export async function updateTag(id, data) {
+    const res = await fetch(`${API_BASE_URL}/tags/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Error updating tag');
+    return res.json();
+}
+
+export async function deleteTag(id) {
+    const res = await fetch(`${API_BASE_URL}/tags/${id}`, {
         method: 'DELETE',
     });
-    if (!res.ok) throw new Error('Error removing tag from note');
+    if (!res.ok) throw new Error('Error deleting tag');
+    return res.json();
+}
+
+// Categories
+
+export async function fetchCategories() {
+    const res = await fetch(`${API_BASE_URL}/categories`);
+    if (!res.ok) throw new Error('Error fetching categories');
+    return res.json();
+}
+
+export async function createCategory(data) {
+    const res = await fetch(`${API_BASE_URL}/categories`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Error creating category');
+    return res.json();
+}
+
+export async function updateCategory(id, data) {
+    const res = await fetch(`${API_BASE_URL}/categories/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Error updating category');
+    return res.json();
+}
+
+export async function deleteCategory(id) {
+    const res = await fetch(`${API_BASE_URL}/categories/${id}`, {
+        method: 'DELETE',
+    });
+    if (!res.ok) throw new Error('Error deleting category');
+    return res.json();
+}
+
+export async function fetchCategory(id) {
+    const res = await fetch(`${API_BASE_URL}/categories/${id}`);
+    if (!res.ok) throw new Error('Error fetching category');
     return res.json();
 }
