@@ -9,7 +9,5 @@ import TagsComponent from './TagsComponent.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <CategoriesComponent />
-    <TagsComponent />
   </StrictMode>,
 )
