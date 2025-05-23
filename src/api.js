@@ -1,4 +1,4 @@
-const API_BASE_URL = 'notes-app-backend-production-1e2f.up.railway.app'; // URL backend API
+const API_BASE_URL = 'https://notes-app-backend-production-1e2f.up.railway.app'; // URL backend API
 
 // === Notas ===
 
